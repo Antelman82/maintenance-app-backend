@@ -58,6 +58,8 @@ CORS_ORIGIN_WHITELIST = (
 
 CORS_ALLOW_CREDENTIALS = True
 
+AUTH_USER_MODEL = 'logs.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -97,8 +99,8 @@ WSGI_APPLICATION = 'maintenace_log.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'logs',
-        'USER': 'logsuser',
+        'NAME': 'maintenance_logs',
+        'USER': 'loguser',
         'PASSWORD': 'logs',
         'HOST': 'localhost'
     }
