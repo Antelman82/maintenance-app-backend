@@ -9,6 +9,15 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
+django-storages = "*"
+python-dotenv = "*"
+boto3 = "*"
+psycopg2-binary = "*"
+django-extensions = "*"
+pillow = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"
+
