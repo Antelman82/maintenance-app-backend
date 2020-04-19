@@ -108,14 +108,13 @@ WSGI_APPLICATION = 'maintenance_log.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'maintenance_logs',
         'USER': 'loguser',
-        'PASSWORD': DATABASE_PASSWWORD,
+        'PASSWORD': 'logs',
         'HOST': 'localhost'
     }
 }
@@ -185,6 +184,6 @@ else:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "Whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 django_heroku.settings(locals())
