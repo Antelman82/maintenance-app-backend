@@ -1,1 +1,1 @@
-web: gunicorn nostaldja_project.wsgi --log-file -
+web: gunicorn maintenance_log.wsgi --log-file -

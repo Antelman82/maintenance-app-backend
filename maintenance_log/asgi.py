@@ -1,5 +1,5 @@
 """
-ASGI config for maintenace_log project.
+ASGI config for maintenance_log project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'maintenace_log.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'maintenance_log.settings')
 
 application = get_asgi_application()
