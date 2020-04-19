@@ -9,13 +9,14 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-import os
+
 import django_heroku
 from dotenv import load_dotenv
 from pathlib import Path  # python3 only
 env_path = Path('.') / '.env_local'
 load_dotenv(dotenv_path=env_path)
 
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,12 +26,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECERET_KEY")
+# SECRET_KEY = os.getenv("DJANGO_SECERET_KEY")
+SECRET_KEY = "1gr7hby9y#krv%ta2yz4szs=2+8-ydrfr1vq2s%-4#58=^-auq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://maintenace-log-api.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://maintenace-log-api.herokuapp.com/', 'https://mainenance-log-app.herokuapp.com/']
 
 # Application definition
 
@@ -62,6 +64,9 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'http://127.0.0.1', 
+    'https://maintenace-log-api.herokuapp.com', 
+    'https://mainenance-log-app.herokuapp.com'
 )
 
 CORS_ALLOW_CREDENTIALS = True
@@ -151,7 +156,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-USE_S3 = os.getenv('USE_S3')
+USE_S3 = os.getenv('USE_S3') == 'TRUE'
 
 
 if USE_S3:

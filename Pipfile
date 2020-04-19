@@ -17,7 +17,6 @@ django-extensions = "*"
 pillow = "*"
 gunicorn = "*"
 django-heroku = "*"
-python = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.0"
