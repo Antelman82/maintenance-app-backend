@@ -6,6 +6,7 @@ name = "pypi"
 [dev-packages]
 
 [packages]
+"bob-builder" = "==0.0.13"
 python-dotenv = "*"
 django = "*"
 djangorestframework = "*"

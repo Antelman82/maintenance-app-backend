@@ -108,13 +108,14 @@ WSGI_APPLICATION = 'maintenance_log.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'maintenance_logs',
         'USER': 'loguser',
-        'PASSWORD': 'logs',
+        'PASSWORD': DATABASE_PASSWWORD,
         'HOST': 'localhost'
     }
 }
