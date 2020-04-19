@@ -18,6 +18,7 @@ django-extensions = "*"
 pillow = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-phone-field = "*"
 
 [requires]
 python_version = "3.8.2"
