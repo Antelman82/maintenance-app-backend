@@ -19,6 +19,7 @@ pillow = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-phone-field = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.8.2"
