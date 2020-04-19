@@ -32,7 +32,7 @@ SECRET_KEY = "1gr7hby9y#krv%ta2yz4szs=2+8-ydrfr1vq2s%-4#58=^-auq"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://maintenance-log-api.herokuapp.com/', 'https://mainenance-log-app.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://maintenance-log-api.herokuapp.com/']
 
 # Application definition
 
