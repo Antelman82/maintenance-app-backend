@@ -113,10 +113,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'maintenance_logs',
-        'USER': 'loguser',
-        'PASSWORD': 'logs',
-        'HOST': 'localhost'
-    }
+        'USER': 'enaeayefqamjsr',
+        # 'USER': 'loguser',
+        # 'PASSWORD': 'logs',
+        'PASSWORD': '45c45a23293fe256a81e58195ec4fd02ebb414ee79affac3224bb339037f9ba8',
+        # 'HOST': 'localhost'
+        'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com'
+    },
+
 }
 
 
