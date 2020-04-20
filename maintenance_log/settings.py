@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'knox',
     'accounts',
     'storages',
+    'django_seed',
 ]
 
 REST_FRAMEWORK = {
@@ -65,8 +66,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://127.0.0.1', 
-    'https://maintenance-log-api.herokuapp.com', 
-    'https://maintenance-log-app.herokuapp.com'
+    'https://maintenace-log-api.herokuapp.com', 
+    'https://maintenance-log-app.herokuapp.com',
 )
 
 CORS_ALLOW_CREDENTIALS = True
@@ -123,31 +124,40 @@ WSGI_APPLICATION = 'maintenance_log.wsgi.application'
 
 # }
 
-if 'RDS_DB_NAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
+# if 'RDS_DB_NAME' in os.environ:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': os.environ['RDS_DB_NAME'],
+#             'USER': os.environ['RDS_USERNAME'],
+#             'PASSWORD': os.environ['RDS_PASSWORD'],
+#             'HOST': os.environ['RDS_HOSTNAME'],
+#             'PORT': os.environ['RDS_PORT'],
+#         }
+#     }
+# else:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'maintenance_logs',
+        'USER': 'loguser',
+        'PASSWORD': 'logs',
+        'HOST': 'localhost',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'maintenance_logs',
-#           'USER': 'enaeayefqamjsr',
-            'USER': 'loguser',
-            'PASSWORD': 'logs',
-#           'PASSWORD': '45c45a23293fe256a81e58195ec4fd02ebb414ee79affac3224bb339037f9ba8',
-            'HOST': 'localhost'
-#           'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com'
-        }
-    }
+}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'maintenance_logs',
+#         'USER': 'enaeayefqamjsr',
+#         # 'USER': 'loguser',
+#         # 'PASSWORD': 'logs',
+#         'PASSWORD': '45c45a23293fe256a81e58195ec4fd02ebb414ee79affac3224bb339037f9ba8',
+#         # 'HOST': 'localhost'
+#         'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com'
+#     },
 
+# }
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
