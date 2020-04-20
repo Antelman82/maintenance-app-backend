@@ -109,20 +109,44 @@ WSGI_APPLICATION = 'maintenance_log.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'maintenance_logs',
-        'USER': 'enaeayefqamjsr',
-        # 'USER': 'loguser',
-        # 'PASSWORD': 'logs',
-        'PASSWORD': '45c45a23293fe256a81e58195ec4fd02ebb414ee79affac3224bb339037f9ba8',
-        # 'HOST': 'localhost'
-        'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com'
-    },
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'maintenance_logs',
+#         'USER': 'enaeayefqamjsr',
+#         # 'USER': 'loguser',
+#         # 'PASSWORD': 'logs',
+#         'PASSWORD': '45c45a23293fe256a81e58195ec4fd02ebb414ee79affac3224bb339037f9ba8',
+#         # 'HOST': 'localhost'
+#         'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com'
+#     },
 
-}
+# }
 
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'maintenance_logs',
+#           'USER': 'enaeayefqamjsr',
+            'USER': 'loguser',
+            'PASSWORD': 'logs',
+#           'PASSWORD': '45c45a23293fe256a81e58195ec4fd02ebb414ee79affac3224bb339037f9ba8',
+            'HOST': 'localhost'
+#           'HOST': 'ec2-34-233-186-251.compute-1.amazonaws.com'
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -183,7 +207,7 @@ if USE_S3:
 
 else:
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_ROOT = os.path.join(BASE_DIR, "www", 'static')
     MEDIA_URL = '/mediafiles/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
